@@ -1,0 +1,42 @@
+#!/bin/bash
+# changeVolume
+
+# Arbitrary but unique message id
+msgId="991049"
+
+function getVolume() {
+    echo $(pactl list sinks | grep '^[[:space:]]Volume:' | \
+        head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
+}
+
+function showNotification() {
+    local volume=$(getVolume)
+
+    # Show the volume notification
+    dunstify -a "changeVolume" -u low -r "$msgId" \
+        "Volume: $volume%" "$(~/.config/dunst/getProgress 23 "─" " " $volume)" --timeout 1000
+}
+
+mute="$(pacmd list-sinks | awk '/muted/ { print $2 }')"
+
+if [[ "$@" == "toggle" ]]; then
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+    if [[ "$mute" == "yes" ]]; then
+        showNotification
+    else
+        dunstify -a "changeVolume" -u low -r "$msgId" "Volume muted" --timeout 1000
+    fi
+else
+    if [[ "$mute" == "yes" ]]; then
+        pactl set-sink-mute @DEFAULT_SINK@ off
+    fi
+      
+    volume=$(getVolume)
+    
+    if (( ($volume + $@) > 100 )); then
+        pactl set-sink-volume @DEFAULT_SINK@ 100%
+    else
+        pactl set-sink-volume @DEFAULT_SINK@ "$@%"
+    fi
+    showNotification
+fi

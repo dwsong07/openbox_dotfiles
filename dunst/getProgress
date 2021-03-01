@@ -1,0 +1,15 @@
+#!/bin/env python
+
+import sys
+
+argv = sys.argv
+
+items = int(argv[1])
+filled_item = argv[2]
+not_filled_item = argv[3]
+status = int(argv[4])
+
+filled_len = int((items * status) / 100)
+not_filled_len = items - filled_len
+
+print(filled_item * filled_len + not_filled_item * not_filled_len + "")

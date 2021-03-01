@@ -1,0 +1,9 @@
+/* https://github.com/adi1090x/rofi/blob/master/1080p/launchers/colorful/colors.rasi */
+
+* {
+  al:  #00000000;
+  bg:  #FFFFFFff;
+  se:  #f3f3f3ff;
+  fg:  #000000ff;
+  ac:  #20A5EFff;
+}

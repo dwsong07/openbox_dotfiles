@@ -1,0 +1,46 @@
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+
+# If you want to use GNOME config tools...
+#
+#if test -x /usr/lib/openbox/gnome-settings-daemon >/dev/null; then
+#  /usr/lib/openbox/gnome-settings-daemon &
+#elif which gnome-settings-daemon >/dev/null 2>&1; then
+#  gnome-settings-daemon &
+#fi
+
+# If you want to use XFCE config tools...
+#
+#xfce-mcs-manager &
+
+# pulseaudio bad boy doesn't recongnize my sound card so... 
+pacmd unload-module module-udev-detect && pacmd load-module module-udev-detect &
+
+# nitrogen for wallpaper
+nitrogen --restore &
+
+# picom for compositor
+picom &
+
+
+# dunst for notification daemons
+dunst &
+
+# Polkit
+sleep 1 && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+skippy-xd --start-daemon &
+
+nextcloud &
+
+
+# quicktile
+quicktile -d &
+
+discord --start-minimized &
+
+# sleep a little seconds becuase of weird bug when connected to external display.
+sleep 0.1 && ~/.config/polybar/launch.sh &

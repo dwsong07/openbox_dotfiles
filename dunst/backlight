@@ -1,0 +1,10 @@
+#!/bin/env bash
+
+msgId=56789
+
+xbacklight "$@"
+
+brightness=$(printf "%.*f\n" 0 $(xbacklight -get))
+
+dunstify -a "changeVolume" -u low -r "$msgId" \
+    "Brightness: ${brightness}%" "$(~/.config/dunst/getProgress 25 "─" " " $brightness)" --timeout 1000

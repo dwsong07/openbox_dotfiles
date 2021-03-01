@@ -1,0 +1,62 @@
+include-file = ~/.config/polybar/top.ini
+include-file = ~/.config/polybar/bottom.ini
+
+[colors]
+background = #66000000
+foreground = #fff
+primary = #00ccff
+urgent = #cc6666
+
+[global/wm]
+margin-bottom = 0
+margin-top = 0
+
+[bar/base]
+monitor = ${env:MONITOR:}
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0 = "Inconsolata Nerd Font"
+font-1 = "Noto Sans Mono CJK KR"
+font-2 = "Inconsolata Nerd Font:size=15"
+
+width = 100%
+radius = 0
+
+;padding-left = 1
+;padding-right = 1
+
+fixed-center = "true"
+
+enable-ipc = true
+
+[bar/top]
+inherit = bar/base
+height = 25
+
+module-margin-left = 0
+module-margin-right = 0
+
+modules-left = launcher workspaces
+modules-center = date
+modules-right = network bluetooth backlight pulseaudio battery
+
+[bar/bottom]
+inherit = bar/base
+bottom = true
+
+height = 28
+
+padding = 2
+
+tray-position = right
+
+; The modules in the bottom bar doesn't look in center vertically, so I created border.
+border-top-size = 4
+border-top-color = #000
+
+module-margin-left = 1
+module-margin-right = 1
+
+modules-left = player-prev player-play-pause player-next player
+modules-center = cpu memory fs
