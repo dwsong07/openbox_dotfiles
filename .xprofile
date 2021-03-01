@@ -1,0 +1,9 @@
+export GTK_IM_MODULE=nimf
+export QT4_IM_MODULE="nimf"
+export QT_IM_MODULE=nimf
+export XMODIFIERS="@im=nimf"
+nimf
+
+export QT_STYLE_OVERRIDE=kvantum
+
+export BROWSER=google-chrome-stable
