@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Nextcloud
+GenericName=File Synchronizer
+Exec="/home/dwsong07/.Applications/Nextcloud-3.1.2-x86_64_ce1f4dcff25bedcc5781b480bc9fe284.AppImage" --background
+Terminal=false
+Icon=Nextcloud
+Categories=Network
+Type=Application
+StartupNotify=false
+X-GNOME-Autostart-enabled=true
