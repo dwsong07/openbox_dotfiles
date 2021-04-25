@@ -16,11 +16,10 @@
 #
 #xfce-mcs-manager &
 
-# pulseaudio bad boy doesn't recongnize my sound card so... 
-pacmd unload-module module-udev-detect && pacmd load-module module-udev-detect &
-
 # nitrogen for wallpaper
 nitrogen --restore &
+
+
 
 # picom for compositor
 picom &
@@ -34,13 +33,15 @@ sleep 1 && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 skippy-xd --start-daemon &
 
-nextcloud &
-
-
 # quicktile
 quicktile -d &
 
 discord --start-minimized &
 
+# pulseaudio bad boy doesn't recongnize my sound card so... 
+pacmd unload-module module-udev-detect && pacmd load-module module-udev-detect &
+
 # sleep a little seconds becuase of weird bug when connected to external display.
 sleep 0.1 && ~/.config/polybar/launch.sh &
+
+~/.config/dunst/battery

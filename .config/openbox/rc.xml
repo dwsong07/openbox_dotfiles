@@ -184,6 +184,11 @@
         <height>100%</height>
       </action>
     </keybind>
+    <keybind key="W-m">
+      <action name="Execute">
+        <command>playerctl play-pause</command>
+      </action>
+    </keybind>
     <keybind key="W-1">
       <action name="Desktop"/>
     </keybind>

@@ -39,7 +39,7 @@ module-margin-right = 0
 
 modules-left = launcher workspaces
 modules-center = date
-modules-right = network bluetooth backlight pulseaudio battery
+modules-right = network bluetooth backlight pulseaudio battery powermenu
 
 [bar/bottom]
 inherit = bar/base
@@ -53,10 +53,10 @@ tray-position = right
 
 ; The modules in the bottom bar doesn't look in center vertically, so I created border.
 border-top-size = 4
-border-top-color = #000
+border-top-color = #66000000
 
 module-margin-left = 1
 module-margin-right = 1
 
 modules-left = player-prev player-play-pause player-next player
-modules-center = cpu memory fs
+modules-center = cpu memory fs updates-pacman

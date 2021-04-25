@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=pcloud
+Comment=pcloudstartup script
+Exec=/home/dwsong07/다운로드/pcloud
+StartupNotify=false
+Terminal=false

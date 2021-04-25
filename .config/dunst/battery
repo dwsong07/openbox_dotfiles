@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+while :
+do
+    charging=$(cat /sys/class/power_supply/BAT1/status)
+    battery=$(cat /sys/class/power_supply/BAT1/capacity)
+    
+    if [ $battery -lt 11 ] && [ $charging == "Discharging" ]
+    then
+        notify-send -u critical "Battery Low!! $battery%"
+    fi
+    sleep 60
+done
